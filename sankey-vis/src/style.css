@@ -1,0 +1,299 @@
+/* 
+    BASE
+*/
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+html {
+	background: #f9f6f4;
+}
+
+body {
+    font-family: "Roboto", Arial, sans-serif;
+    color: #312e33;
+    font-size: 100%;
+	line-height: 1.4;
+}
+
+.relative { position: relative; }
+.clear: { clear: both; }
+.center { text-align: center; }
+.alignRight { text-align: right; }
+.smallcap { 
+    text-transform: uppercase; 
+    font-size: 84%;
+}
+.smaller {
+	font-size: 82%;
+	line-height: 120%;
+}
+.large {
+    font-size: 200%;
+}
+.thin {
+	font-weight: 200;
+}
+.thinner {
+	font-weight: lighter;
+}
+.half {
+    width: 50%;
+}
+.floatRight {
+	float: right;
+}
+.invisible {
+	visibility: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: #ea4626;
+	
+	-webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+a:hover {
+	color: #4f82db;
+}
+a[href = ""] {
+	background: red;
+	color: white;
+	font-size: x-large;
+}
+a[href^="http://"]:after, a[href^="https://"]:after {
+	display: inline-block;
+	content: "";
+	height: 16px;
+	width: 16px;
+	background: transparent url(../imgs/arrow.png) no-repeat center right;
+	padding-left: 5px;
+}
+a[href^="http://"]:hover:after, a[href^="https://"]:hover:after {
+	opacity: .8;
+	padding-left: 6px;
+	margin-right: -1px;
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.25;
+}
+h1 {
+    margin: 0;
+	font-size: 2.7em; /* 4em */
+}
+h2 {
+    margin: 0 .5em;
+	font-size: 2.25em;
+}
+h3 {
+	margin: 0 .5em;
+	
+	font-size: 1.6em;
+	font-weight: 300;
+	text-transform: uppercase;
+	color: #1a315b;
+	letter-spacing: 5px;
+}
+h4 {
+	width: 320px;
+	margin: 0 0 1em;
+	font-size: 1.3em;
+	font-weight: 300;
+	text-transform: uppercase;
+	color: #51cce0;
+	letter-spacing: .5px;
+}
+
+
+p {
+	margin: .5em 0 1em;
+}
+p+p {
+	
+}
+hr {
+	height: 1px;
+	border: none;
+	border-bottom: 1px solid #aaa;
+}
+
+footer {
+	margin: 2.5em 0 0;
+	padding: 2.5em;
+	background: #e5dcda;
+		
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+footer a {
+	margin-left: 1em;
+}
+
+
+/* 
+    FLEXING
+*/
+
+.flex-v {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.flex-h {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+	
+	align-items: center;
+}
+.flex {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.flex2 {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+}
+.flex-grow {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+
+/* * * CHART * * */
+
+#chart {
+  	height: 2000px;
+	margin: 0 1em;
+	
+}
+
+.node rect {
+	cursor: move;
+	fill-opacity: .5;
+	shape-rendering: crispEdges;
+	stroke-width: 1px;
+	stroke-opacity: .5;
+
+	-webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.node rect:hover {
+	fill-opacity: .9;
+	stroke-opacity: .9;
+}
+
+.node text {
+  /*pointer-events: none;*/
+  text-shadow: 0 1px 5px #fff;
+  font-size: 10.5px;
+}
+
+.link {
+	fill: none;
+	/*stroke: #6a3;*/
+	stroke: url("#linkGradient");
+	stroke-opacity: .2;
+	
+	-webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.link:hover {
+  stroke-opacity: .5;
+}
+
+	
+/* * * D3 TIP * * */
+
+.d3-tip {
+	padding: 13.5px;
+	background: rgba(49, 46, 51, 0.8);
+	border-radius: 2px;
+	pointer-events: none;
+	color: #e5dcda;
+	line-height: 1;
+	font-size: 12px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(49, 46, 51, 0.8);
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Northward tooltips */
+.d3-tip.n:after {
+  content: "\25BC";
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+  text-align: center;
+}
+
+/* Eastward tooltips */
+.d3-tip.e:after {
+  content: "\25C0";
+  margin: -4px 0 0 0;
+  top: 50%;
+  left: -8px;
+}
+
+/* Southward tooltips */
+.d3-tip.s:after {
+  content: "\25B2";
+  margin: 0 0 1px 0;
+  top: -8px;
+  left: 0;
+  text-align: center;
+}
+
+/* Westward tooltips */
+.d3-tip.w:after {
+  content: "\25B6";
+  margin: -4px 0 0 -1px;
+  top: 50%;
+  left: 100%;
+}
+
+.d3-tip .tipValue {
+	color: #51cce0;
+	font-weight: 300;
+}
