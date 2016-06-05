@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hawaii Expenditures By Department</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.1.0/d3-legend.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.3/d3-tip.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <style>
+
+      .axis text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 19pt;
+      }
+      .axis .label {
+        font-size: 20pt;
+      }
+
+      .axis path, .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+
+      .color-legend text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 10pt;
+      }
+
+      .d3-tip {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 19pt;
+        line-height: 1;
+        padding: 7px;
+        background: black;
+        color: lightgray;
+        border-radius: 20px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <script>
+      function getWidth() {
+        if (self.innerHeight) {
+          return self.innerWidth;
+        }
+
+        if (document.documentElement && document.documentElement.clientWidth) {
+          return document.documentElement.clientWidth;
+        }
+
+        if (document.body) {
+          return document.body.clientWidth;
+        }
+      }
+
+      function getHeight() {
+        if (self.innerHeight) {
+          return self.innerHeight;
+        }
+
+        if (document.documentElement && document.documentElement.clientHeight) {
+          return document.documentElement.clientHeight;
+        }
+
+        if (document.body) {
+          return document.body.clientHeight;
+        }
+      }
+
+      var legendPercent = 0.75
+      var outerWidth = getWidth();
+      var outerHeight =  getHeight();
+      var margin = { left: 130, top: 44, right: getWidth() * (1-legendPercent), bottom: 47 };
+      var barPadding = 0.2;
+
+      var xColumn = "year";
+      var yColumn = "population";
+      var colorColumn = "dept";
+      var layerColumn = colorColumn;
+
+      var hoveredColorValue;
+      var hoveredStrokeColor = "black";
+
+      var innerWidth  = outerWidth  - margin.left - margin.right;
+      var innerHeight = outerHeight - margin.top  - margin.bottom;
+
+      var svg = d3.select("body").append("svg")
+        .attr("width",  outerWidth)
+        .attr("height", outerHeight);
+      var g = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      // This is the layer where the bars are drawn.
+      var baseBarLayer = g.append("g");
+
+      // This layer contains a semi-transparent overlay
+      // that fades out the base bars.
+      var overlayRect = g.append("g")
+        .append("rect")
+        .attr("width", innerWidth)
+        .attr("height", innerHeight)
+        .style("pointer-events", "none");
+
+      // This contains the subset of bars rendered on top
+      // when you hover over the entries in the color legend.
+      var foregroundBarLayer = g.append("g");
+
+      var xAxisG = g.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + innerHeight + ")");
+      var yAxisG = g.append("g")
+        .attr("class", "y axis");
+      var colorLegendG = g.append("g")
+        .attr("class", "color-legend")
+        .attr("transform", "translate(" + (getWidth()) + ", 0)");
+
+      var xScale = d3.scale.ordinal().rangeBands([0, innerWidth], barPadding);
+      var yScale = d3.scale.linear().range([innerHeight, 0]);
+      var colorScale = d3.scale.category10();
+
+      var tipNumberFormat = d3.format(",");
+      var tip = d3.tip()
+        .attr("class", "d3-tip")
+        .offset([-10, 0])
+        .html(function(d) {
+          return [
+            d[colorColumn],
+            " in ",
+            d[xColumn],
+            ": ",
+            tipNumberFormat(d[yColumn])
+          ].join("");
+        });
+      g.call(tip);
+
+      // Use a modified SI formatter that uses "B" for Billion.
+      var siFormat = d3.format("s");
+      var customTickFormat = function (d){
+        return siFormat(d).replace("G", "B");
+      };
+
+      var xAxis = d3.svg.axis().scale(xScale).orient("bottom")
+        .outerTickSize(0);
+      var yAxis = d3.svg.axis().scale(yScale).orient("left")
+        .ticks(5)
+        .tickFormat(customTickFormat)
+        .outerTickSize(0);
+
+      var colorLegend = d3.legend.color()
+        .scale(colorScale)
+        .shapePadding(6.24)
+        .shapeWidth(25)
+        .shapeHeight(25)
+        .labelOffset(5);
+
+      function render(data){
+
+        var nested = d3.nest()
+          .key(function (d){ return d[layerColumn]; })
+          .entries(data);
+
+        var stack = d3.layout.stack()
+          .y(function (d){ return d[yColumn]; })
+          .values(function (d){ return d.values; });
+
+        var layers = stack(nested.reverse()).reverse();
+
+        xScale.domain(layers[0].values.map(function (d){
+          return d[xColumn];
+        }));
+
+        yScale.domain([
+          0,
+          d3.max(layers, function (layer){
+            return d3.max(layer.values, function (d){
+              return d.y0 + d.y;
+            });
+          })
+        ]);
+
+        colorScale.domain(layers.map(function (layer){
+          return layer.key;
+        }));
+
+        xAxisG.call(xAxis);
+        yAxisG.call(yAxis);
+
+        renderBars(baseBarLayer, layers);
+
+        if(hoveredColorValue){
+          setOverlayTransparency(0.7);
+          renderBars(foregroundBarLayer, layers.filter(function (layer){
+            return layer.key === hoveredColorValue;
+          }));
+        } else {
+          setOverlayTransparency(0.0);
+          renderBars(foregroundBarLayer, []);
+        }
+
+        colorLegendG.call(colorLegend);
+
+        // Move the text down a bit.
+        colorLegendG.selectAll("text").attr("y", 4);
+
+        listenForHover(colorLegendG.selectAll("rect"), data);
+        listenForHover(colorLegendG.selectAll("text"), data);
+      }
+
+      function setOverlayTransparency(alpha){
+        overlayRect
+          .transition().duration(400)
+          .attr("fill", "rgba(255, 255, 255, " + alpha + ")");
+      }
+
+      function renderBars(g, layers){
+        var layerGs = g.selectAll(".layer").data(layers);
+        layerGs.enter().append("g").attr("class", "layer");
+        layerGs.exit().remove();
+        layerGs.style("fill", function (d){
+          return colorScale(d.key);
+        });
+
+        var bars = layerGs.selectAll("rect").data(function (d){
+          return d.values;
+        });
+        bars.enter().append("rect")
+          .on("mouseover", tip.show)
+          .on("mouseout", tip.hide);
+        bars.exit().remove();
+        bars
+          .attr("x", function (d){ return xScale(d[xColumn]); })
+          .attr("y", function (d){ return yScale(d.y0 + d.y); })
+          .attr("width", xScale.rangeBand())
+          .attr("height", function (d){ return innerHeight - yScale(d.y); });
+      }
+
+      function listenForHover(selection, data){
+        selection
+          .on("mouseover", function (d){
+            hoveredColorValue = d;
+            render(data);
+          })
+          .on("mouseout", function (d){
+            hoveredColorValue = null;
+            render(data);
+          })
+          .style("cursor", "pointer");
+      }
+
+      function type(d){
+        d.population = +d.population;
+        return d;
+      }
+
+      d3.csv("expenditures.csv", type, render);
+
+    </script>
+  </body>
+</html>
