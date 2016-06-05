@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<link href='http://fonts.googleapis.com/css?family=Palanquin:400,200,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>-->
+
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/dc/1.7.0/dc.css">
+    <link rel="stylesheet" type="text/css" href="src/style.css">
+
+    <title>Hawaii State Expenditures</title>
+</head>
+<body id="body">
+	<header class="container" id="top">
+		<div class="header-backing"></div>
+		<div class="header-inner center">
+			<h1>Hawaii State Budget &amp; Expenditures Project</h1>
+			<div class="intro flex-h">
+				<div class="flex container thin details">
+
+				</div>
+				<div class="flex container thin details align-right">
+                    ( <a href="https://github.com/CodeforHawaii/HawaiiBudgetExpenditures">Our Github Repo</a> )
+				</div>
+			</div>
+			<br class="clear">
+		</div>
+	</header>
+	<main>
+		<section data-order="2" id="expenditures" class='curr'>
+            <div class="flex-h"><h2>Temporal Analysis of Hawaii State Expenditures (2014 - 2016)</h2><hr class="flex"></div>
+            <div class="flex-h">
+                <div class="flex container description">
+                    This visualization was built with crossfilter / dc.js -- forked from <a href="http://supraset.com/campaignfinance">supraset.com/campaignfinance</a>
+                </div>
+                <div class="data-source">
+                    Data Source: <a href="https://data.hawaii.gov/dataset/Expenditures/mkz8-mgjp">data.hawaii.gov</a>
+                </div>
+            </div>
+			<div class='charts expenditure-charts'>
+				<div class="chart-sizer">
+					<div id='expend-hidden-chart' class="chart invisible"></div>
+				</div>
+				<div class="chart-block c-w3 c-h0-5 totals">
+					<h4>Dollars: <span class="amount">0</span></h4>
+					<h4 class="thinner">Records: <span class="size">0</span></h4>
+				</div>
+                <div class="chart-block c-w3">
+					<h5>Amount Spent per Week</h5>
+					<div id='expend-date-chart' class="chart"></div>
+				</div>
+                <div class="chart-block c-w3 c-h0-75">
+					<h5>Expenses Filed per Week</h5>
+					<div id='expend-count-chart' class="chart"></div>
+				</div>
+                <div class="chart-block c-h3">
+					<h5>Department</h5>
+					<div id='expend-dept-chart' class="chart"></div>
+				</div>
+				<div class="chart-block c-h3">
+					<h5>Expense Category <span class="thinner smaller">(Top 40)</span></h5>
+					<div id='expend-expcat-chart' class="chart"></div>
+				</div>
+                <div class="chart-block c-h3">
+					<h5>Vendor <span class="thinner smaller">(Top 40)</span></h5>
+					<div id='expend-vendor-chart' class="chart"></div>
+				</div>
+            </div>
+			<br class="clear">
+        </section>
+    </main>
+
+	<script type="text/javascript">
+        (function() {
+            // Union of Chrome, Firefox, IE, Opera, and Safari console methods
+            var methods = ["assert", "assert", "cd", "clear", "count", "countReset",
+              "debug", "dir", "dirxml", "dirxml", "dirxml", "error", "error", "exception",
+              "group", "group", "groupCollapsed", "groupCollapsed", "groupEnd", "info",
+              "info", "log", "log", "markTimeline", "profile", "profileEnd", "profileEnd",
+              "select", "table", "table", "time", "time", "timeEnd", "timeEnd", "timeEnd",
+              "timeEnd", "timeEnd", "timeStamp", "timeline", "timelineEnd", "trace",
+              "trace", "trace", "trace", "trace", "warn"];
+            var length = methods.length;
+            var console = (window.console = window.console || {});
+            var method;
+            var noop = function() {};
+            while (length--) {
+              method = methods[length];
+              // define undefined methods as noops to prevent errors
+              if (!console[method])
+                console[method] = noop;
+            }
+          })();
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.min.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js"></script>
+	<script type="text/javascript" src="http://d3js.org/queue.v1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.0.0-beta.26/dc.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.6.7/d3-tip.min.js"></script>
+
+    <script type="text/javascript">
+        var app = {};
+    </script>
+    <script type="text/javascript" src="src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+/*
+    BASE
+*/
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+html {
+	background: rgb(248, 246, 247);
+}
+
+body {
+    font-family: "Palanquin", Arial, sans-serif;
+    color: rgb(50, 45, 50);
+    font-size: 100%;
+	line-height: 1.4;
+}
+
+.relative { position: relative; }
+.clear: { clear: both; }
+.center { text-align: center; }
+.align-right { text-align: right; }
+.smallcap {
+    text-transform: uppercase;
+    font-size: 84%;
+}
+.smaller {
+	font-size: 82%;
+	line-height: 120%;
+}
+.large {
+    font-size: 200%;
+}
+.thin {
+	font-weight: 200;
+}
+.thinner {
+	font-weight: lighter;
+}
+.half {
+    width: 50%;
+}
+.floatRight {
+	float: right;
+}
+.invisible {
+	visibility: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: hsl(195, 67%, 66%);
+}
+a:hover {
+	color: hsl(195, 88%, 75%);
+}
+a[href = ""] {
+	background: red;
+	color: white;
+	font-size: x-large;
+}
+/*
+a[href^="http://"]:after, a[href^="https://"]:after {
+	display: inline-block;
+	content: "";
+	height: 16px;
+	width: 16px;
+	background: transparent url(../imgs/arrow.png) no-repeat center right;
+	padding-left: 5px;
+}
+a[href^="http://"]:hover:after, a[href^="https://"]:hover:after {
+	opacity: .8;
+	padding-left: 6px;
+	margin-right: -1px;
+}*/
+
+h1, h2, h3, h4 {
+    line-height: 1.25;
+}
+h1 {
+    margin: 0;
+	font-size: 2.7em; /* 4em */
+}
+h2 {
+    margin: 0;
+
+	font-size: 2em;
+    color: hsl(245, 14%, 22%);
+}
+h4 {
+	font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 1em 0 .25em;
+}
+
+p {
+	margin: .5em 0 1em;
+}
+p+p {
+
+}
+
+
+#nprogress .bar {
+	height: 5px;
+	background: hsl(195, 67%, 66%);
+}
+#nprogress .peg {
+	-webkit-transform: rotate(3deg) translate(0px, -10px);
+       -moz-transform: rotate(3deg) translate(0px, -10px);
+        -ms-transform: rotate(3deg) translate(0px, -10px);
+    	    transform: rotate(3deg) translate(0px, -10px);
+}
+#nprogress .spinner {
+    top: 29px;
+    right: 7px;
+}
+#nprogress .spinner-icon {
+    border-width: 5px;
+	border-top-color: hsl(195, 47%, 76%);
+    border-left-color: hsl(195, 67%, 66%);
+}
+#nprogress .spinner:after {
+    content: "LOADING";
+    position: absolute;
+    left: 10px;
+    top: 16px;
+
+    transform: rotate(90deg);
+    transform-origin: left;
+    color: hsl(195, 67%, 66%);
+	font-size: 90%;
+	letter-spacing: .5px;
+}
+
+
+
+/*
+    FLEXING
+*/
+
+.flex-v {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.flex-h {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+
+	align-items: center;
+}
+.flex {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.flex2 {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+}
+.flex-grow {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+
+
+/*
+    BLOCKS
+*/
+
+header {
+	position: relative;
+
+	background-size: cover;
+    background-position: 50% 50%;
+	margin-bottom: 1em;
+
+	color: hsl(170, 20%, 90%);
+}
+.intro {
+	margin: 0 auto;
+	padding: 0 4em;
+	align-items: flex-start;
+}
+header img {
+    padding: 0 2em;
+}
+.header-backing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	z-index: 0;
+
+	opacity: .85;
+	background: linear-gradient(20deg, hsl(15, 10%, 25%) 20%, hsl(45, 10%, 35%) 80%);
+}
+.header-credit {
+	position: absolute;
+    bottom: 10px;
+    right: 10px;
+	z-index: 0;
+
+	color: #888;
+
+	/*font-size: 9px;*/
+}
+.header-credit a {
+	color: inherit;
+}
+.header-inner {
+	position: relative;
+	z-index: 10;
+	text-shadow: 0 0 20px rgba(20, 20, 20, .33);
+}
+header .details {
+	font-size: .8em;
+}
+
+main {
+    /*overflow: hidden;*/
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    padding: 1.25em;
+}
+
+main .charts {
+    position: relative;
+	min-height: 500px;
+	z-index: 1;
+	clear: both;
+}
+
+section {
+    position: relative;
+    min-height: 100vh;
+    /*width: 100vw;*/
+	padding: 5em 3em;
+    clear: both;
+
+    -webkit-transition: all .75s ease;
+            transition: all .75s ease;
+}
+section.mini-section {
+    min-height: initial;
+    z-index: 1;
+
+    box-shadow: 1px 1px 1em rgba(100, 100, 100, .25);
+}
+
+
+section.curr article {
+    /*transform: translate(0, 0);*/
+}
+section article {
+    position: relative;
+    z-index: 10;
+    min-height: 102%;
+    /*transform: translate(100%, 0);*/
+
+    -webkit-transition: all 1.5s ease;
+            transition: all 1.5s ease;
+}
+
+.section-inner {
+    position: relative;
+    min-height: 640px;
+
+    padding: 0 4em;
+}
+
+h2+hr {
+	border: none;
+	border-bottom: 3px solid hsl(245, 14%, 22%);
+	margin-left: 8px;
+	border-radius: 8px;
+}
+
+.data-source {
+	-webkit-align-self: baseline;
+	-moz-align-self: baseline;
+	-ms-align-self: baseline;
+	align-self: baseline;
+}
+
+
+
+/* * * CHARTS * * */
+
+.isloading-overlay {
+	position: relative;
+	text-align: center;
+}
+#contributions .isloading-overlay {
+	background: hsla(120, 55%, 45%, .25) !important;
+}
+#expenditures .isloading-overlay {
+	background: hsla(210, 55%, 45%, .25) !important;
+}
+#disclosures .isloading-overlay {
+	background: hsla(30, 55%, 45%, .25) !important;
+}
+.isloading-overlay .isloading-wrapper {
+	display: inline-block;
+	margin: 0 auto;
+	top: 10%;
+	z-index: 20000;
+
+	padding: 1.5em 3em;
+	border-radius: 7px;
+	background-clip: padding-box;
+	-webkit-border-radius: 7px;
+	-webkit-background-clip: padding-box;
+	-moz-border-radius: 7px;
+	-moz-background-clip: padding;
+	box-shadow: 1em 1em 4em;
+
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: white;
+	font-size: 1.75em;
+}
+
+
+.charts .totals {
+	text-align: center;
+}
+.charts h4 {
+	display: inline-block;
+	margin: .65em 1em;
+
+	font-size: 1.8em;
+}
+#expenditures .totals .amount, #expenditures .totals .size {
+	color: hsl(190, 55%, 45%);
+}
+
+.chart-block, .chart-sizer {
+	width: calc(33.33% - .5em);
+}
+
+.chart-block {
+	/*display: inline;
+	float: left;
+	vertical-align: top;*/
+	box-sizing: border-box;
+	height: 210px;
+	float: left;
+	background: rgba(253, 252, 251, .25);
+	border: 1px solid rgba(200, 200, 200, .75);
+}
+.c-w3 {
+	width: calc(100% - 1.5em);
+}
+.c-h0-5 {
+	height: 75px;
+}
+.c-h0-75 {
+	height: 160px;
+}
+.c-h1-5 {
+	height: 300px;
+}
+.c-h2 {
+	height: 390px;
+}
+.c-h2-5 {
+	height: 520px;
+}
+.c-h3 {
+	height: 660px;
+}
+.c-h4 {
+	height: 800px;
+}
+
+
+h5 {
+    display: block;
+    margin: .5em 0 .25em;
+    text-align: center;
+
+    text-transform: uppercase;
+	font-size: 1.25em;
+    color: hsl(150, 10%, 50%);
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+main .chart {
+	float: none;
+}
+
+.chart text.label {
+    font-size: 10px;
+}
+.dc-chart.chart g.row text {
+    fill: #808688;
+	text-anchor: end;
+	font-size: 10px;
+}
+
+.dc-chart.chart .tick text {
+    fill: #a0a6a8;
+}
+.dc-chart .axis path, .axis line {
+	stroke: #a0a6a8;
+}
+
+.d3-tip {
+    background-color: rgb(54, 49, 76);
+    padding: .25em .5em;
+    border-radius: .5em;
+    box-shadow: 1px 1px 10px rgba(100, 100, 100, .25);
+
+    color: #ddd;
+	font-size: 12px;
+}
