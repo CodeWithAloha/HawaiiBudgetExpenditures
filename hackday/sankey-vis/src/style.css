@@ -1,4 +1,4 @@
-/* 
+/*
     BASE
 */
 
@@ -21,8 +21,8 @@ body {
 .clear: { clear: both; }
 .center { text-align: center; }
 .alignRight { text-align: right; }
-.smallcap { 
-    text-transform: uppercase; 
+.smallcap {
+    text-transform: uppercase;
     font-size: 84%;
 }
 .smaller {
@@ -51,7 +51,7 @@ body {
 a {
 	text-decoration: none;
 	color: #ea4626;
-	
+
 	-webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
@@ -93,7 +93,7 @@ h2 {
 }
 h3 {
 	margin: 0 .5em;
-	
+
 	font-size: 1.6em;
 	font-weight: 300;
 	text-transform: uppercase;
@@ -115,7 +115,7 @@ p {
 	margin: .5em 0 1em;
 }
 p+p {
-	
+
 }
 hr {
 	height: 1px;
@@ -127,7 +127,7 @@ footer {
 	margin: 2.5em 0 0;
 	padding: 2.5em;
 	background: #e5dcda;
-		
+
 	text-transform: uppercase;
 	font-weight: 300;
 }
@@ -136,8 +136,12 @@ footer a {
 	margin-left: 1em;
 }
 
+.p1 {
+	padding: 1em;
+}
 
-/* 
+
+/*
     FLEXING
 */
 
@@ -162,8 +166,8 @@ footer a {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
-	
-	align-items: center;
+
+		/*align-items: center;*/
 }
 .flex {
     -webkit-box-flex: 1;
@@ -188,9 +192,8 @@ footer a {
 /* * * CHART * * */
 
 #chart {
-  	height: 2000px;
-	margin: 0 1em;
-	
+  	height: 1600px;
+		margin: 0 1em;
 }
 
 .node rect {
@@ -206,35 +209,59 @@ footer a {
     -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
 }
-.node rect:hover {
+.node:hover rect {
 	fill-opacity: .9;
 	stroke-opacity: .9;
 }
 
 .node text {
   /*pointer-events: none;*/
-  text-shadow: 0 1px 5px #fff;
-  font-size: 10.5px;
+  font-size: 11px;
+	fill: #555;
+	text-shadow: 0 0px 3px #fff;
+	letter-spacing: .25px;
+
+	-webkit-transition: all 0.3s ease-out;
+		-moz-transition: all 0.3s ease-out;
+		-ms-transition: all 0.3s ease-out;
+		-o-transition: all 0.3s ease-out;
+		transition: all 0.3s ease-out;
 }
+.node.over text, .node.under text, .under, .over {
+	color: #e31;
+	fill: #e31;
+	text-transform: uppercase;
+}
+.node:hover text {
+	fill: #0b8;
+	fill-opacity: 1;
+}
+
 
 .link {
 	fill: none;
 	/*stroke: #6a3;*/
 	stroke: url("#linkGradient");
-	stroke-opacity: .2;
-	
+	stroke-opacity: .25;
+
 	-webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
 }
-
-.link:hover {
-  stroke-opacity: .5;
+.link.over {
+	stroke: url("#overGradient");
+}
+.link.under {
+	stroke: url("#underGradient");
 }
 
-	
+.link:hover {
+  stroke-opacity: .75;
+}
+
+
 /* * * D3 TIP * * */
 
 .d3-tip {
