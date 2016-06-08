@@ -52,7 +52,3 @@ Some of the things that we noticed about the data in the CSV files:
 * Budget dept names don't match the names in Expenditures.
 * Department data of one of the datasets include white spaces (both beginning and ending)
 * Department names are slightly different.  One includes "Department of" or "Dept of" and the other dataset does not at all
-
-
-
-
