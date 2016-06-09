@@ -6,13 +6,12 @@ It can be found here: [www.codeforhawaii.org/HawaiiBudgetExpenditures](http://ww
 
 ## Contributors
 
-[Andrew Wong](https://github.com/thecodingmonkey)
-Jennifer Pearcey
-[Jonathan Geyer](https://github.com/jonpage)
-[Jonathan Page](https://github.com/jonpage)
-[Krislin Lee](https://github.com/krislinlee)
-[Yukio Yamamoto](https://github.com/yukio808)
-[Andrew Wong](https://github.com/thecodingmonkey)
+* Andrew Wong - [github.com/thecodingmonkey](https://github.com/thecodingmonkey)
+* Jennifer Pearcey
+* Jonathan Geyer - [github.com/jongeyer](https://github.com/jonpage)
+* Jonathan Page - [github.com/jonpage](https://github.com/jonpage)
+* Krislin Lee - [github.com/krislinlee](https://github.com/krislinlee)
+* Yukio Yamamoto - [github.com/yukio808](https://github.com/yukio808)
 
 
 ## Mini Site powered by [Bootstrap](http://startbootstrap.com/) - [Freelancer](http://startbootstrap.com/template-overviews/freelancer/)
