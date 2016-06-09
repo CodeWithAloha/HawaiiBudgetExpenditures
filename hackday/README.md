@@ -1,4 +1,4 @@
-# Mini site for work done for 2016 National Day of Civic Hacking
+# Mini site to showcase work done at 2016 National Day of Civic Hacking
 
 This mini site highlights work done by a group of coders at the 2016 NDOCH hackathon.
 It can be found here: [www.codeforhawaii.org/HawaiiBudgetExpenditures](http://www.codeforhawaii.org/HawaiiBudgetExpenditures/)
