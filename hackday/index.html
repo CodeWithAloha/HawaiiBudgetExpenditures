@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Code for Hawaii State Budget & Expenditure Visualizations</title>
+    <title>Code for Hawaii - State Budget &amp; Expenditure Visualizations</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Hawaii State Budget & Expenditures Mapping</a>
+                <a class="navbar-brand" href="#page-top">Hawaii State Budget &amp; Expenditures Project</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,10 +54,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Graph</a>
+                        <a href="#portfolio">Visualizations</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#data">Data</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
@@ -76,8 +76,31 @@
                 <div class="col-lg-12">
                     <div class="intro-text">
                         <span class="name">Hawaii Fiscal Data</span>
-                        <hr class="star-light">
                         <span class="skills">FY 2014 - FY 2015 - FY 2016</span>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+
+                    <div class="text-left">
+                        <h3>Purpose</h3>
+                        <p>During the Code for Hawaii #CodeAcross Panel of the 2016 Unconferenz in Honolulu, the State of Hawaii CIO, Todd Nacapuy, mentioned that they have a need for matching budget data with spending. It was one of the many things that
+                            they need help with given the constraints that they face.</p>
+
+                        <p>For the CodeAcross portion of the 2016 Unconferenz, our team is trying to address this need. We'll be working on a data visualization of budgeted funds versus their expenditures using the open data from the data.hawaii.gov portal.
+                            </p>
+                        <br>
+                        <h3>Current Data Flow</h3>
+                        <br>
+                        <h4>Expenditures:</h4>
+                        <p>- All expenditues from all agencies / depts are input into FAMIS (cobol database), and contains information on actual expenditure, dept, vendor, agency.</p>
+                        <p>- DataMart software pulls from FAMIS, groups / filters data into a list which then goes to the Dept Acct Gen Svc as excel, csv, etc, but needs to be manually scrubbed since it contains SSNs & personal data, which potentially takes
+                            months.</p>
+                        <p>- The scrubbed expenditure data is then put on opendata.hawaii.gov. </p>
+                        <br>
+                        <h4>Budget:</h4>
+                        <p>- Every 8 months the deputy director of budget and finance provides a budget spreadsheet (xlsx), minus DOE, UH, executive branches, which have thier own budget data worksheets; most of which is available in pdfs on captial.hawaii.gov.</p>
+                        <br>
                     </div>
                 </div>
             </div>
@@ -98,7 +121,8 @@
                     <a href="calendar-vis/index.html" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i> <br> Calendar Vis
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                <br> Calendar Vis
                             </div>
                         </div>
                         <img src="img/portfolio/calendar-vis.png" class="img-responsive" alt="">
@@ -108,7 +132,8 @@
                     <a href="exp-year/index.html" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i> <br> By Year
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                <br> By Year
                             </div>
                         </div>
                         <img src="img/portfolio/exp-year.png" class="img-responsive" alt="">
@@ -118,219 +143,190 @@
                     <a href="crossfilter-vis/" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i> <br> Crossfiltering Expenditures
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                <br> Crossfiltering Expenditures
                             </div>
                         </div>
                         <img src="img/portfolio/crossfilter-vis.png" class="img-responsive" alt="">
                     </a>
                 </div>
-                <div class="col-sm-4 portfolio-item">
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4 portfolio-item">
                     <a href="https://app.powerbi.com/view?r=eyJrIjoiMGI2MzBlZTYtMjExNy00YjM5LWJlNDctN2NlYjdmNjIwZGQ2IiwidCI6IjNkYjhlNjUxLWQ0OWMtNGI0YS04YTNkLTA4M2JiOTI5MWI3NyIsImMiOjZ9" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i> <br> Wordmap
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                <br> Vendor Wordmap
                             </div>
                         </div>
                         <img src="img/portfolio/wordmap-vis.png" class="img-responsive" alt="">
                     </a>
                 </div>
-				<div class="col-lg-12 text-center">
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <br><br>
                     <h2>Budget v. Expenditures</h2>
                     <hr class="star-primary">
                 </div>
-                <div class="col-sm-4 portfolio-item">
+                <div class="col-sm-4 col-sm-offset-4 portfolio-item">
                     <a href="sankey-vis/" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i> <br> Sankey Diagram Mapping Budget to Expenses
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                <br> Sankey Diagram Mapping Budget to Expenses
                             </div>
                         </div>
                         <img src="img/portfolio/sankey-vis.png" class="img-responsive" alt="">
                     </a>
                 </div>
-                <div class="col-lg-12 text-center">
-                    <h2>Budget</h2>
-                    <hr class="star-primary">
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiOTZmNzMxNWItMjMwMS00ODA1LWJkNjQtMWI4ZmNmZjZmMDc4IiwidCI6IjNkYjhlNjUxLWQ0OWMtNGI0YS04YTNkLTA4M2JiOTI5MWI3NyIsImMiOjZ9" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i> <br> Budget Treemap
-                            </div>
-                        </div>
-                        <img src="img/portfolio/treemap-vis.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-
-                <!--<div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i> <br> FY 2015
-                            </div>
-                        </div>
-                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i> <br> FY 2016
-                            </div>
-                        </div>
-                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
-                </div>-->
             </div>
-            <div class="col-lg-12 text-center">
-                        <h2>Data Models</h2>
-                        <hr class="star-primary">
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="https://github.com/krislinlee/HawaiiBudgetExpenditures/tree/master/neo4j" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i> <br> Capital Budget Graph
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <br><br>
+                            <h2>Budget</h2>
+                            <hr class="star-primary">
+                        </div>
+                        <div class="col-lg-12 portfolio-item">
+                            <a href="https://app.powerbi.com/view?r=eyJrIjoiOTZmNzMxNWItMjMwMS00ODA1LWJkNjQtMWI4ZmNmZjZmMDc4IiwidCI6IjNkYjhlNjUxLWQ0OWMtNGI0YS04YTNkLTA4M2JiOTI5MWI3NyIsImMiOjZ9" class="portfolio-link" data-toggle="modal">
+                                <div class="caption">
+                                    <div class="caption-content">
+                                        <i class="fa fa-search-plus fa-3x"></i>
+                                        <br> Budget Treemap
+                                    </div>
                                 </div>
-                            </div>
-                            <img src="img/capital-budget-graph.png" class="img-responsive" alt="">
-                        </a>
+                                <img src="img/portfolio/treemap-vis.png" class="img-responsive" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <br><br>
+                            <h2>Data Models</h2>
+                            <hr class="star-primary">
+                        </div>
+                        <div class="col-lg-12 portfolio-item">
+                            <a href="https://github.com/krislinlee/HawaiiBudgetExpenditures/tree/master/neo4j" class="portfolio-link" data-toggle="modal">
+                                <div class="caption">
+                                    <div class="caption-content">
+                                        <i class="fa fa-search-plus fa-3x"></i>
+                                        <br> Capital Budget Graph
+                                    </div>
+                                </div>
+                                <img src="img/capital-budget-graph.png" class="img-responsive" alt="">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="success" id="about">
+    <!-- Data Section -->
+    <section class="success" id="data">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>About</h2>
+                    <h2>Data</h2>
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
-					<h3>Purpose</h3>
-					<p>During the Code for Hawaii #CodeAcross Panel of the 2016 Unconferenz in Honolulu, the State of Hawaii CIO, Todd Nacapuy,
-					mentioned that they have a need for matching budget data with spending.
-					It was one of the many things that they need help with given the constraints that they face.</p>
+                    <h3>Budget Data Sets: </h3>
 
-					<p>For the CodeAcross portion of the 2016 Unconferenz, our team is trying to address this need.
-					We'll be working on a data visualization of budgeted funds versus their expenditures using the open data from the data.hawaii.gov portal. </p>
-					<br>
-					<h3>Current Data Flow</h3>
-					<p>Expenditures:</p>
-					<p>-All expenditues from all agencies / depts are input into FAMIS (cobol database), and contains information on actual expenditure, dept, vendor, agency.</p>
-					<p>-DataMart software pulls from FAMIS, groups / filters data into a list which then goes to the Dept Acct Gen Svc as excel, csv, etc, but needs to be manually
-					scrubbed since it contains SSNs & personal data, which potentially takes months.</p>
-					<p>-The scrubbed expenditure data is then put on opendata.hawaii.gov. </p>
-					<p>Budget:</p>
-					<p>-Every 8 months the deputy director of budget and finance provides a budget spreadsheet (xlsx), minus DOE, UH, executive branches, which have thier own
-					budget data worksheets; most of which is available in pdfs on captial.hawaii.gov.</p>
-					<br>
-                    <h3>Visualizations:</h3>
-					<p>Budget from year to year</p>
-					<p>Expenditures year to year</p>
-					<p>Budget to Expenditures matching</p>
-					<br>
-					<h3>Budget Data Sets: </h3>
+                    <p>Currently used data: Approved budget data - <a href="https://data.hawaii.gov/dataset/Hawaii-Operating-Budget/p8xe-w4xh"> https://data.hawaii.gov/dataset/Hawaii-Operating-Budget/p8xe-w4xh </a> </p>
+                    <br>
+                    <p>Other Available data:</p>
+                    <p>Budget Table J1 (Salary and FTE) - <a href="https://data.hawaii.gov/dataset/Budget-Table-J1-Salary-and-FTE-/i4ce-99gr"> https://data.hawaii.gov/dataset/Budget-Table-J1-Salary-and-FTE-/i4ce-99gr </a> </p>
+                    <p> Budget Table J2 (Other Current Expenses) - <a href="https://data.hawaii.gov/dataset/Budget-Table-J2-Other-Current-Expenses-/qp7g-996d"> https://data.hawaii.gov/dataset/Budget-Table-J2-Other-Current-Expenses-/qp7g-996d </a></p>
+                    <p> McKay's scraped dataset from Director of Budget Dept (mult. worksheets) </p>
+                    <br>
 
-					<p>Currently used data: Approved budget data - <a href="https://data.hawaii.gov/dataset/Hawaii-Operating-Budget/p8xe-w4xh"> https://data.hawaii.gov/dataset/Hawaii-Operating-Budget/p8xe-w4xh </a> </p>
-					<br>
-					<p>Other Available data:</p>
-					<p>Budget Table J1 (Salary and FTE) - <a href="https://data.hawaii.gov/dataset/Budget-Table-J1-Salary-and-FTE-/i4ce-99gr"> https://data.hawaii.gov/dataset/Budget-Table-J1-Salary-and-FTE-/i4ce-99gr </a> </p>
-					<p> Budget Table J2 (Other Current Expenses) - <a href="https://data.hawaii.gov/dataset/Budget-Table-J2-Other-Current-Expenses-/qp7g-996d"> https://data.hawaii.gov/dataset/Budget-Table-J2-Other-Current-Expenses-/qp7g-996d </a></p>
-					<p> McKay's scraped dataset from Director of Budget Dept (mult. worksheets) </p>
-					<br>
+                    <h3>Expenditures Data Sets:</h3>
 
-					<h3>Expenditures Data Sets:</h3>
-
-					<p>Currently used data: Expenditures - <a href=https://data.hawaii.gov/dataset/Expenditures/mkz8-mgjp"> https://data.hawaii.gov/dataset/Expenditures/mkz8-mgjp </a></p>
+                    <p>Currently used data: Expenditures -
+                        <a href=https://data.hawaii.gov/dataset/Expenditures/mkz8-mgjp "> https://data.hawaii.gov/dataset/Expenditures/mkz8-mgjp </a></p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
+    <section id="contact ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-12 text-center ">
                     <h2>Contact</h2>
-                    <hr class="star-primary">
+                    <hr class="star-primary ">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls text-center">
+            <div class="row ">
+                <div class="col-lg-8 col-lg-offset-2 ">
+                        <div class="row control-group ">
+                            <div class="text-center ">
                                 <h4>Our National Day of Civic Hacking Team</h4>
-                                <label>National Day of Civic Hacking Contributors</label>
-                                <!--<input type="text" class="form-control" placeholder="Contributors" id="name" required data-validation-required-message="Please enter your name.">
-                                <p class="help-block text-danger"></p>-->
                                 <br>
-                                <p><a href="https://github.com/thecodingmonkey">Andrew Wong</a></p>
+                                <p><a href="https://github.com/thecodingmonkey ">Andrew Wong</a></p>
                                 <p>Jarren Lee</p>
                                 <p>Jennifer Pearcey</p>
-                                <p><a href="https://github.com/jongeyer">Jonathan Geyer</a></p>
-                                <p><a href="https://github.com/jonpage">Jonathan Page</a></p>
-                                <p><a href="https://github.com/krislinlee">Krislin Lee</a></p>
-                                <p><a href="https://github.com/yukio808">Yukio Yamamoto</a></p>
+                                <p><a href="https://github.com/jongeyer ">Jonathan Geyer</a></p>
+                                <p><a href="https://github.com/jonpage ">Jonathan Page</a></p>
+                                <p><a href="https://github.com/krislinlee ">Krislin Lee</a></p>
+                                <p><a href="https://github.com/yukio808 ">Yukio Yamamoto</a></p>
                             </div>
                         </div>
-                    </form>
+
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-4">
+    <footer class="text-center ">
+        <!--<div class="footer-above ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="footer-col col-md-4 ">
                         <h3>Location</h3>
                         <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
                     </div>
-                    <div class="footer-col col-md-4">
+                    <div class="footer-col col-md-4 ">
                         <h3>Around the Web</h3>
-                        <ul class="list-inline">
+                        <ul class="list-inline ">
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                <a href="# " class="btn-social btn-outline "><i class="fa fa-fw fa-facebook "></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                                <a href="# " class="btn-social btn-outline "><i class="fa fa-fw fa-google-plus "></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                                <a href="# " class="btn-social btn-outline "><i class="fa fa-fw fa-twitter "></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                                <a href="# " class="btn-social btn-outline "><i class="fa fa-fw fa-linkedin "></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                                <a href="# " class="btn-social btn-outline "><i class="fa fa-fw fa-dribbble "></i></a>
                             </li>
                         </ul>
                     </div>
-                    <div class="footer-col col-md-4">
+                    <div class="footer-col col-md-4 ">
                         <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com ">Start Bootstrap</a>.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
+        </div>-->
+        <div class="footer-below ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-12 ">
                         Copyright &copy; Code for America
                     </div>
                 </div>
@@ -339,253 +335,30 @@
     </footer>
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll visible-xs visible-sm">
-        <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
+    <div class="scroll-top page-scroll visible-xs visible-sm ">
+        <a class="btn btn-primary " href="#page-top ">
+            <i class="fa fa-chevron-up "></i>
         </a>
     </div>
 
-    <!-- Portfolio Modals -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery.js "></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js "></script>
 
     <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js "></script>
+    <script src="js/classie.js "></script>
+    <script src="js/cbpAnimatedHeader.js "></script>
 
     <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="js/jqBootstrapValidation.js "></script>
+    <script src="js/contact_me.js "></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
+    <script src="js/freelancer.js "></script>
 
 </body>
 
